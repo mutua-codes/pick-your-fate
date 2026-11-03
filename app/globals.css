@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 body {
   min-height: 100vh;
   background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
@@ -60,5 +62,4 @@ body {
 }
 
 .result-emoji { font-size: 2.6rem; }
-
 .text-muted-light { color: #c8c8e0; }

@@ -1,12 +1,17 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './globals.css';
+import type { Metadata } from 'next';
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Pick a Box – Destiny Edition',
-  description: 'Four boxes. One destiny. Zero refunds.',
+  description: 'Eight boxes. One destiny. Zero refunds.',
 };
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html lang="en">
       <body>{children}</body>
