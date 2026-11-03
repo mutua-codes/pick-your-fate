@@ -1,26 +1,64 @@
-@import "tailwindcss";
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+  color: #fff;
 }
+
+.box-card {
+  width: 120px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3rem;
+  border-radius: 14px;
+  cursor: pointer;
+  user-select: none;
+  background: linear-gradient(145deg, #e94560, #c23152);
+  box-shadow: 0 6px 0 #7a1f35, 0 10px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.box-card:hover:not(.opened):not(.disabled) {
+  transform: translateY(-6px) scale(1.05);
+}
+
+.box-card:active:not(.opened):not(.disabled) {
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 #7a1f35;
+}
+
+.box-card.opened,
+.box-card.disabled {
+  background: linear-gradient(145deg, #2a2a4a, #1a1a30);
+  box-shadow: 0 4px 0 #0d0d1a;
+  cursor: default;
+  transform: none;
+}
+
+.box-card.opened {
+  animation: pop 0.4s ease;
+}
+
+@keyframes pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+
+.result-card {
+  max-width: 440px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.result-card.show {
+  opacity: 1;
+}
+
+.result-emoji { font-size: 2.6rem; }
+
+.text-muted-light { color: #c8c8e0; }
